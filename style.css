@@ -1,564 +1,119 @@
-/* ==========================================================
-   RUEDA LIBRE – style.css
-   Una sola hoja de estilos para index, tarifas y reserve.
-   Los colores y medidas viven arriba en :root (variables),
-   así, si luego quieres cambiar el look (o hacerlo con JS),
-   solo tocas esas variables.
-   ========================================================== */
-
 /* Tipografías amigables de Google Fonts:
    Fredoka para títulos, Nunito para el texto */
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700&display=swap");
 
-
-/* ---------- 1. VARIABLES ---------- */
-:root {
-    --verde-oscuro: #1f5a43;
-    --verde: #2f7d5b;
-    --menta: #eef6f0;       /* fondo de la página */
-    --menta-borde: #cfe3d6;
-    --amarillo: #ffd24a;    /* color de acento */
-    --amarillo-hover: #f5bf1f;
-    --texto: #26332c;
-    --blanco: #ffffff;
-
-    --radio: 18px;
-    --sombra: 0 6px 18px rgba(31, 90, 67, 0.10);
-
-    --fuente-titulos: "Fredoka", "Trebuchet MS", sans-serif;
-    --fuente-texto: "Nunito", Arial, sans-serif;
+.navbar {
+    padding: 15px;
 }
 
-
-/* ---------- 2. BASE ---------- */
-* {
-    box-sizing: border-box;
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
 }
 
-html {
-    background-color: var(--menta);
+.nav-link {
+    margin-left: 15px;
+    font-size: 16px;
+    transition: 0.3s;
 }
+
+.nav-link:hover {
+    color: #0d6efd !important;
+}
+
 
 body {
-    font-family: var(--fuente-texto);
-    font-size: 17px;
-    line-height: 1.65;
-    color: var(--texto);
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 28px 20px 48px;
-}
-
-/* Imágenes */
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 14px;
-}
-
-/* Títulos */
-h1, h2, h3 {
-    font-family: var(--fuente-titulos);
-    font-weight: 600;
-    line-height: 1.2;
-}
-
-h1 {
-    color: var(--verde-oscuro);
-    text-align: center;
-    font-size: 2.6rem;
-    margin: 0.4em 0 0.3em;
-}
-
-h2 {
-    color: var(--verde-oscuro);
-    font-size: 1.6rem;
-    margin: 1.8em 0 0.6em;
-}
-
-/* Barrita amarilla debajo de cada h2 */
-h2::after {
-    content: "";
-    display: block;
-    width: 48px;
-    height: 5px;
-    margin-top: 8px;
-    background-color: var(--amarillo);
-    border-radius: 999px;
-}
-
-h3 {
-    color: var(--verde);
-    font-size: 1.25rem;
-    margin: 1.4em 0 0.3em;
-}
-
-/* Enlaces */
-a {
-    color: var(--verde);
-    font-weight: 700;
-    text-decoration-line: underline;
-    text-decoration-color: var(--amarillo);
-    text-decoration-thickness: 3px;
-    text-underline-offset: 3px;
-    transition: color 0.2s;
-}
-
-a:hover {
-    color: var(--verde-oscuro);
-}
-
-/* Foco visible para quien navega con teclado */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible {
-    outline: 3px solid var(--amarillo-hover);
-    outline-offset: 2px;
-}
-
-
-/* ---------- 3. PÁGINA DE INICIO (index.html) ---------- */
-
-/* Encabezado: tarjeta verde con la foto y el saludo */
-body > header {
-    background-color: var(--verde-oscuro);
-    color: var(--blanco);
-    text-align: center;
-    padding: 24px 24px 30px;
-    border-radius: var(--radio);
-    box-shadow: var(--sombra);
-    margin-bottom: 24px;
-}
-
-body > header img {
-    display: block;
-    margin: 0 auto 16px;
-    border: 4px solid var(--amarillo);
-    border-radius: var(--radio);
-}
-
-body > header h1 {
-    color: var(--blanco);
-    font-size: 3rem;
-    margin-top: 0;
-}
-
-body > header p {
-    margin: 0.3em auto;
-    max-width: 52ch;
-}
-
-/* Contenido principal: tarjeta blanca */
-main {
-    background-color: var(--blanco);
-    padding: 12px 28px 32px;
-    border-radius: var(--radio);
-    box-shadow: var(--sombra);
-}
-
-/* Lista de pasos (ol): números en círculos amarillos */
-ol {
-    list-style: none;
-    counter-reset: paso;
-    padding: 0;
-}
-
-ol li {
-    counter-increment: paso;
-    position: relative;
-    padding-left: 48px;
-    margin-bottom: 14px;
-}
-
-ol li::before {
-    content: counter(paso);
-    position: absolute;
-    left: 0;
-    top: -2px;
-    width: 34px;
-    height: 34px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--amarillo);
-    color: var(--verde-oscuro);
-    font-family: var(--fuente-titulos);
-    font-weight: 600;
-    border-radius: 50%;
-}
-
-/* Lista normal (ul): viñetas verdes */
-ul {
-    padding-left: 22px;
-}
-
-li {
-    margin-bottom: 8px;
-}
-
-ul li::marker {
-    color: var(--verde);
-}
-
-/* Sección "Encuéntranos" */
-#ubicacion {
-    background-color: var(--menta);
-    border: 2px dashed var(--menta-borde);
-    border-radius: var(--radio);
-    padding: 4px 22px 22px;
-    margin-top: 32px;
-}
-
-#ubicacion img {
-    margin: 6px 8px 10px 0;
-    vertical-align: top;
-}
-
-/* Clase opcional: ponle class="boton" a un enlace para verlo como botón */
-.boton {
-    display: inline-block;
-    background-color: var(--amarillo);
-    color: var(--verde-oscuro);
-    padding: 10px 20px;
-    border-radius: 999px;
-    text-decoration: none;
-    transition: background-color 0.2s;
-}
-
-.boton:hover {
-    background-color: var(--amarillo-hover);
-    color: var(--verde-oscuro);
-}
-
-
-/* ---------- 4. PÁGINA DE TARIFAS (tarifas.html) ----------
-   Aquí no hay <main>: los elementos son hijos directos del body */
-
-body > img {
-    display: block;
-    margin: 0 auto 14px;
-}
-
-body > br {
-    display: none;
-}
-
-/* Enlace "Volver a la página principal" como botoncito */
-body > a {
-    display: inline-block;
-    background-color: var(--blanco);
-    border: 2px solid var(--menta-borde);
-    padding: 6px 16px;
-    border-radius: 999px;
-    text-decoration: none;
-    font-size: 0.95rem;
-}
-
-body > a:hover {
-    border-color: var(--amarillo);
-}
-
-/* Tablas */
-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    background-color: var(--blanco);
-    border-radius: var(--radio);
-    box-shadow: var(--sombra);
-    overflow: hidden;       /* respeta las esquinas redondeadas */
-    margin: 16px 0 8px;
-}
-
-th {
-    background-color: var(--verde);
-    color: var(--blanco);
-    font-family: var(--fuente-titulos);
-    font-weight: 500;
-    text-align: left;
-    padding: 12px 16px;
-}
-
-td {
-    padding: 12px 16px;
-    border-top: 1px solid var(--menta-borde);
-}
-
-tbody tr:nth-child(even) {
-    background-color: #f6fbf7;
-}
-
-tbody tr:hover {
-    background-color: #fff6d6;
-}
-
-/* Última columna = precio: a la derecha y con signo $ */
-th:last-child,
-td:last-child {
-    text-align: right;
-}
-
-td:last-child {
-    font-weight: 700;
-    color: var(--verde-oscuro);
-    font-variant-numeric: tabular-nums;
-}
-
-td:last-child::before {
-    content: "$ ";
-}
-
-
-/* ---------- 5. FORMULARIO (reserve.html) ---------- */
-form {
-    background-color: var(--menta);
-    padding: 20px;
-    border-radius: var(--radio);
-}
-
-fieldset {
-    border: 2px solid var(--menta-borde);
-    border-radius: 14px;
-    padding: 12px 20px 8px;
-    background-color: var(--blanco);
-}
-
-legend {
-    font-family: var(--fuente-titulos);
-    font-size: 1.2rem;
-    color: var(--verde-oscuro);
-    padding: 0 10px;
-}
-
-label {
-    display: block;
-    font-weight: 700;
-    margin-bottom: 4px;
-}
-
-input,
-select {
-    width: 100%;
-    padding: 10px 12px;
-    font-family: inherit;
-    font-size: 1rem;
-    color: var(--texto);
-    background-color: var(--blanco);
-    border: 2px solid var(--menta-borde);
-    border-radius: 10px;
-    transition: border-color 0.2s;
-}
-
-input:focus,
-select:focus {
-    border-color: var(--verde);
-}
-
-button {
-    background-color: var(--amarillo);
-    color: var(--verde-oscuro);
-    font-family: var(--fuente-titulos);
-    font-size: 1.05rem;
-    padding: 12px 26px;
-    border: none;
-    border-radius: 999px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-button:hover {
-    background-color: var(--amarillo-hover);
-}
-
-
-/* ---------- 6. PANTALLAS PEQUEÑAS ---------- */
-@media (max-width: 600px) {
-    body {
-        font-size: 16px;
-        padding: 14px 12px 32px;
-    }
-
-    h1 {
-        font-size: 2.1rem;
-    }
-
-    body > header h1 {
-        font-size: 2.4rem;
-    }
-
-    main {
-        padding: 8px 16px 24px;
-    }
-
-    #ubicacion {
-        padding: 4px 14px 16px;
-    }
-
-    /* Las tablas se pueden deslizar de lado si no caben */
-    table {
-        display: block;
-        overflow-x: auto;
-    }
-
-    th, td {
-        padding: 10px 12px;
-        white-space: nowrap;
-    }
-}
-
-/* Respeta a quien prefiere menos movimiento */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        transition: none !important;
-    }
-}
-/* ==========================================================
-   7. NAVEGACIÓN Y BOTONES MODERNOS
-   ========================================================== */
-
-/* Enlaces que funcionan como botones */
-body > a,
-main a:not([href^="#"]):not(.enlace-normal),
-nav a,
-.boton {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-
-    padding: 12px 22px;
-    margin: 5px 4px;
-
-    background: linear-gradient(
-        135deg,
-        var(--verde),
-        var(--verde-oscuro)
-    );
-
-    color: var(--blanco);
-    font-family: var(--fuente-titulos);
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-
-    border: 2px solid transparent;
-    border-radius: 14px;
-
-    box-shadow: 0 4px 10px rgba(31, 90, 67, 0.14);
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease,
-        color 0.25s ease;
-}
-
-/* Efecto al pasar el mouse */
-body > a:hover,
-main a:not([href^="#"]):not(.enlace-normal):hover,
-nav a:hover,
-.boton:hover {
-    background: var(--amarillo);
-    color: var(--verde-oscuro);
-
-    transform: translateY(-3px);
-
-    box-shadow: 0 8px 18px rgba(31, 90, 67, 0.18);
-}
-
-/* Efecto al hacer clic */
-body > a:active,
-main a:not([href^="#"]):not(.enlace-normal):active,
-nav a:active,
-.boton:active {
-    transform: translateY(0) scale(0.97);
-}
-
-/* Contenedor de navegación */
-nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-
-    padding: 14px;
-    margin: 18px 0 24px;
-
-    background: var(--blanco);
-    border: 1px solid var(--menta-borde);
-    border-radius: 20px;
-
-    box-shadow: var(--sombra);
-}
-
-/* Enlaces dentro de la navegación */
-nav a {
     margin: 0;
-    flex: 1 1 145px;
+    padding: 0;
+    background-color: #c4d1d6;
+}
+
+.contenedor {
+    width: 70%;
+    max-width: 1500px;
+    margin: 40px auto;
     text-align: center;
 }
 
-/* Botón amarillo para acciones importantes */
-.boton-principal {
-    background: linear-gradient(
-        135deg,
-        var(--amarillo),
-        var(--amarillo-hover)
-    );
+.navbar {
+    background-color: #d2edf0;
+    padding: 15px 40px;
 
-    color: var(--verde-oscuro);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Hover del botón principal */
-.boton-principal:hover {
-    background: var(--verde-oscuro);
-    color: var(--blanco);
+.navbar img {
+    width: 80px;
 }
 
-/* Botón secundario más suave */
-.boton-secundario {
-    background: var(--menta);
-    color: var(--verde-oscuro);
-    border-color: var(--menta-borde);
-    box-shadow: none;
+.menu {
+    display: flex;
+    gap: 25px;
 }
 
-.boton-secundario:hover {
-    background: var(--amarillo);
-    border-color: var(--amarillo);
-    color: var(--verde-oscuro);
+.menu a {
+    text-decoration: none;
+    color: #263746;
+    font-weight: bold;
 }
 
-/* Botones de navegación en móviles */
-@media (max-width: 600px) {
-    nav {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
-        padding: 12px;
-    }
-
-    nav a {
-        width: 100%;
-        min-height: 48px;
-        padding: 10px 8px;
-        margin: 0;
-        font-size: 0.95rem;
-    }
-
-    body > a {
-        padding: 10px 16px;
-    }
+.menu a:hover {
+    color: #168aad;
 }
 
-/* Accesibilidad: reducir movimiento si está configurado */
-@media (prefers-reduced-motion: reduce) {
-    body > a,
-    main a,
-    nav a,
-    .boton {
-        transition: none;
-    }
+.servicios {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.tarjeta1,
+.tarjeta2,
+.tarjeta3 {
+    background-color: white;
+    width: 280px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.10);
+}
+
+.tarjeta h3 {
+    color: #168aad;
+}
+
+.tarjeta p {
+    line-height: 1.6;
+}
+
+.presentacion {
+    background-color: #4088a5;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+    font-size: 19px;
+    background-image: url("https://images.openai.com/static-rsc-4/CdB9-B2IJnawumSOt6Nz6b6FRRfJ_IxUrKE8xhsEDHfSnaKas2vFXoFcAVhYEG0gakZflA3VOEITuTc0HTT0SagrRXaRKrxs-0y7wQdxP-8Hpc0bqJ96UxN7aF1kkaGWynHxrFXv6g8LHkmdG-SAFy0XPNlVvHWUuKacaOLgeY1QlyPY1CN29e6cCfdVeogT?purpose=fullsize");
+    background-size: cover;
+    text-shadow: 1px 1px 2px black;
+}
+
+.rueda-libre {
+    font-size: 150px;
+}
+
+.flota {
+ text-align: center;
+padding: 50px;
+
+}
+
+.card {
+    width: 300px;
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+
 }
