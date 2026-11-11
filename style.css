@@ -83,17 +83,14 @@ h2 {
     padding: 4.5rem 1.25rem;
     color: #fff;
     text-align: center;
-    background-image:
-        linear-gradient(
-            110deg,
-            rgba(28, 73, 87, 0.82),
-            rgba(22, 138, 173, 0.48)
-        ),
-        url("https://images.openai.com/static-rsc-4/CdB9-B2IJnawumSOt6Nz6b6FRRfJ_IxUrKE8xhsEDHfSnaKas2vFXoFcAVhYEG0gakZflA3VOEITuTc0HTT0SagrRXaRKrxs-0y7wQdxP-8Hpc0bqJ96UxN7aF1kkaGWynHxrFXv6g8LHkmdG-SAFy0XPNlVvHWUuKacaOLgeY1QlyPY1CN29e6cCfdVeogT?purpose=fullsize");
+    background-image: url("https://images.openai.com/static-rsc-4/CdB9-B2IJnawumSOt6Nz6b6FRRfJ_IxUrKE8xhsEDHfSnaKas2vFXoFcAVhYEG0gakZflA3VOEITuTc0HTT0SagrRXaRKrxs-0y7wQdxP-8Hpc0bqJ96UxN7aF1kkaGWynHxrFXv6g8LHkmdG-SAFy0XPNlVvHWUuKacaOLgeY1QlyPY1CN29e6cCfdVeogT?purpose=fullsize");
     background-color: var(--rl-blue-dark);
     background-position: center;
     background-size: cover;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+   
 }
+
 
 .rueda-libre h1 {
     margin-bottom: 1.25rem;
