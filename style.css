@@ -1,124 +1,402 @@
-/* Tipografías amigables de Google Fonts:
-   Fredoka para títulos, Nunito para el texto */
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700&display=swap");
 
-.navbar {
-    padding: 15px;
+:root {
+    --rl-ink: #263746;
+    --rl-blue: #168aad;
+    --rl-blue-dark: #226b83;
+    --rl-mist: #c4d1d6;
+    --rl-pale: #d2edf0;
+    --rl-paper: #f7faf9;
+    --rl-green: #43856c;
 }
 
-.navbar-brand {
-    font-size: 24px;
-    font-weight: bold;
+* {
+    box-sizing: border-box;
 }
-
-.nav-link {
-    margin-left: 15px;
-    font-size: 16px;
-    transition: 0.3s;
-}
-
-.nav-link:hover {
-    color: #0d6efd !important;
-}
-
 
 body {
     margin: 0;
-    padding: 0;
-    background-color: #c4d1d6;
+    color: var(--rl-ink);
+    background: var(--rl-paper);
+    font-family: "Nunito", sans-serif;
+    line-height: 1.65;
 }
 
-.contenedor {
-    width: 70%;
-    max-width: 1500px;
-    margin: 40px auto;
-    text-align: center;
+h1,
+h2,
+h3,
+h4,
+.navbar-brand {
+    color: var(--rl-ink);
+    font-family: "Fredoka", sans-serif;
+    font-weight: 600;
+}
+
+h2 {
+    margin-bottom: 1rem;
 }
 
 .navbar {
-    background-color: #d2edf0;
-    padding: 15px 40px;
-
+    position: relative;
+    z-index: 2;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1.5rem;
+    padding: 0.75rem clamp(1rem, 5vw, 4rem);
+    background: var(--rl-pale);
+    box-shadow: 0 2px 12px rgba(38, 55, 70, 0.08);
 }
 
 .navbar img {
     width: 80px;
+    height: 60px;
+    object-fit: contain;
 }
 
 .menu {
     display: flex;
-    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .menu a {
+    color: var(--rl-ink);
+    font-weight: 700;
     text-decoration: none;
-    color: #263746;
-    font-weight: bold;
 }
 
-.menu a:hover {
-    color: #168aad;
+.menu a:hover,
+.menu a:focus-visible {
+    color: var(--rl-blue-dark);
+}
+
+.menu .btn {
+    border-radius: 6px;
+}
+
+.presentacion {
+    display: grid;
+    place-items: center;
+    min-height: 430px;
+    padding: 4.5rem 1.25rem;
+    color: #fff;
+    text-align: center;
+    background-image:
+        linear-gradient(
+            110deg,
+            rgba(28, 73, 87, 0.82),
+            rgba(22, 138, 173, 0.48)
+        ),
+        url("https://images.openai.com/static-rsc-4/CdB9-B2IJnawumSOt6Nz6b6FRRfJ_IxUrKE8xhsEDHfSnaKas2vFXoFcAVhYEG0gakZflA3VOEITuTc0HTT0SagrRXaRKrxs-0y7wQdxP-8Hpc0bqJ96UxN7aF1kkaGWynHxrFXv6g8LHkmdG-SAFy0XPNlVvHWUuKacaOLgeY1QlyPY1CN29e6cCfdVeogT?purpose=fullsize");
+    background-color: var(--rl-blue-dark);
+    background-position: center;
+    background-size: cover;
+}
+
+.rueda-libre h1 {
+    margin-bottom: 1.25rem;
+    color: #fff;
+    font-size: 4.5rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.piedepresentacion {
+    max-width: 650px;
+    font-size: 1.15rem;
+}
+
+.piedepresentacion .btn {
+    margin-top: 0.5rem;
+    padding: 0.65rem 1.2rem;
+    font-weight: 700;
+}
+
+.contenedor {
+    width: min(90%, 1100px);
+    margin: 2.5rem auto;
+    padding: 2.25rem;
+    text-align: center;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(38, 55, 70, 0.07);
 }
 
 .servicios {
     display: flex;
     justify-content: center;
-    gap: 25px;
+    align-items: stretch;
     flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
 }
 
 .tarjeta1,
 .tarjeta2,
 .tarjeta3 {
-    background-color: white;
-    width: 280px;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.10);
+    display: flex;
+    flex: 1 1 250px;
+    flex-direction: column;
+    align-items: center;
+    max-width: 340px;
+    padding: 1.5rem;
+    background: #fff;
+    border: 1px solid #e1eaeb;
+    border-top: 4px solid var(--rl-blue);
+    border-radius: 7px;
+    box-shadow: 0 3px 12px rgba(38, 55, 70, 0.07);
 }
 
-.tarjeta h3 {
-    color: #168aad;
+.tarjeta1 svg,
+.tarjeta2 svg,
+.tarjeta3 svg {
+    margin-bottom: 0.75rem;
+    color: var(--rl-blue);
 }
 
-.tarjeta p {
-    line-height: 1.6;
+.tarjeta1 h3,
+.tarjeta2 h3,
+.tarjeta3 h3 {
+    color: var(--rl-blue-dark);
+    font-size: 1.3rem;
 }
 
-.presentacion {
-    background-color: #4088a5;
-    color: white;
-    padding: 100px 0;
-    text-align: center;
-    font-size: 19px;
-    background-image: url("https://images.openai.com/static-rsc-4/CdB9-B2IJnawumSOt6Nz6b6FRRfJ_IxUrKE8xhsEDHfSnaKas2vFXoFcAVhYEG0gakZflA3VOEITuTc0HTT0SagrRXaRKrxs-0y7wQdxP-8Hpc0bqJ96UxN7aF1kkaGWynHxrFXv6g8LHkmdG-SAFy0XPNlVvHWUuKacaOLgeY1QlyPY1CN29e6cCfdVeogT?purpose=fullsize");
-    background-size: cover;
-    text-shadow: 1px 1px 2px black;
-}
-
-.rueda-libre {
-    font-size: 150px;
+.tarjeta1 .btn,
+.tarjeta3 .btn {
+    margin-top: auto;
 }
 
 .flota {
- text-align: center;
-padding: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 3rem 1.25rem;
+    text-align: center;
+}
 
+.flota.row {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.flota > h2,
+.flota > p {
+    flex: 0 0 100%;
 }
 
 .card {
-    
-    margin: 22px;
+    margin: 0.75rem;
     overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-
+    border: 1px solid #e2e9e9;
+    border-radius: 7px;
+    box-shadow: 0 4px 14px rgba(38, 55, 70, 0.1);
 }
 
-.alquilar
-{
+.card-img-top {
+    height: 190px;
+    object-fit: cover;
+}
 
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.card-title {
+    color: var(--rl-blue-dark);
+}
+
+.alquilar,
+.eleccion,
+.ubicacion {
+    width: min(90%, 1000px);
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(38, 55, 70, 0.07);
+}
+
+.alquilar {
+    border-left: 5px solid var(--rl-green);
+}
+
+.alquilar ol,
+.eleccion ul {
+    padding-left: 1.5rem;
+}
+
+.btn-alquilar {
+    display: inline-block;
+    padding: 0.65rem 1rem;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    background: var(--rl-green);
+    border-radius: 5px;
+}
+
+.btn-alquilar:hover,
+.btn-alquilar:focus-visible {
+    color: #fff;
+    background: #326c55;
+}
+
+.ubicacion {
+    text-align: center;
+}
+
+.ubicacion img {
+    max-width: min(100%, 380px);
+    height: auto;
+    margin: 0.5rem;
+    border-radius: 6px;
+}
+
+main.container {
+    max-width: 900px;
+    min-height: calc(100vh - 90px);
+}
+
+main.container > h1,
+.tarifas-page h1 {
+    margin: 1rem 0 1.5rem;
+    color: var(--rl-blue-dark);
+    text-align: center;
+}
+
+form.card {
+    display: block;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: clamp(1.25rem, 4vw, 2.5rem) !important;
+    border: 1px solid #e1e9e9 !important;
+}
+
+form legend {
+    float: none;
+    width: auto;
+    margin-bottom: 1rem;
+    color: var(--rl-blue-dark);
+    font-family: "Fredoka", sans-serif;
+    font-size: 1.5rem;
+}
+
+form label {
+    margin-bottom: 0.35rem;
+    font-weight: 700;
+}
+
+form .form-control,
+form .form-select {
+    border-color: #bdccce;
+}
+
+form .form-control:focus,
+form .form-select:focus {
+    border-color: var(--rl-blue);
+    box-shadow: 0 0 0 0.2rem rgba(22, 138, 173, 0.16);
+}
+
+.tarifas-page {
+    max-width: 1050px;
+    min-height: calc(100vh - 90px);
+    padding-top: 2.5rem;
+    padding-bottom: 4rem;
+}
+
+.tarifas-page > img {
+    display: block;
+    width: min(100%, 680px);
+    max-height: 300px;
+    margin: 0 auto 1.25rem;
+    object-fit: cover;
+}
+
+.tarifas-page > a {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.tarifas-page h2 {
+    margin-top: 2.5rem;
+    color: var(--rl-blue-dark);
+}
+
+.table-container {
+    margin-bottom: 1.5rem;
+    background: #fff;
+    border: 1px solid #dce6e7;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+.table-container thead th {
+    color: #fff;
+    white-space: nowrap;
+    background: var(--rl-blue-dark);
+}
+
+.table-container tbody td {
+    vertical-align: middle;
+}
+
+a {
+    transition:
+        color 0.18s ease,
+        background-color 0.18s ease;
+}
+
+@media (max-width: 640px) {
+    .navbar {
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 0.75rem 1rem;
+    }
+
+    .menu {
+        gap: 0.25rem;
+    }
+
+    .menu .btn {
+        padding: 0.35rem 0.55rem;
+        font-size: 0.9rem;
+    }
+
+    .presentacion {
+        min-height: 370px;
+        padding: 3rem 1rem;
+    }
+
+    .rueda-libre h1 {
+        font-size: 2.75rem;
+    }
+
+    .piedepresentacion {
+        font-size: 1rem;
+    }
+
+    .contenedor,
+    .alquilar,
+    .eleccion,
+    .ubicacion {
+        width: calc(100% - 1.5rem);
+        margin: 1.25rem auto;
+        padding: 1.35rem;
+    }
+
+    .flota {
+        padding: 2rem 0.5rem;
+    }
+
+    .card {
+        width: min(100% - 1rem, 320px);
+        margin: 0.5rem;
+    }
+
+    .tarifas-page {
+        padding-top: 1.5rem;
+    }
 }
