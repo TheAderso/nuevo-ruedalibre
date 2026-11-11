@@ -260,6 +260,61 @@ main.container {
     min-height: calc(100vh - 90px);
 }
 
+.site-footer {
+    padding: 2rem clamp(1rem, 5vw, 4rem);
+    color: #fff;
+    background: var(--rl-ink);
+    border-top: 5px solid var(--rl-green);
+}
+
+.footer-inner {
+    display: flex;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.25rem 2rem;
+}
+
+.footer-brand {
+    color: #fff;
+    font-family: "Fredoka", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.25rem;
+}
+
+.footer-links a,
+.footer-contact {
+    color: #e4f2f1;
+    text-decoration: none;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible,
+.footer-contact:hover,
+.footer-contact:focus-visible,
+.footer-brand:hover,
+.footer-brand:focus-visible {
+    color: #a9dec8;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+.footer-contact {
+    padding: 0.4rem 0.75rem;
+    border: 1px solid rgba(228, 242, 241, 0.55);
+    border-radius: 6px;
+}
+
 main.container > h1,
 .tarifas-page h1 {
     margin: 1rem 0 1.5rem;
@@ -363,6 +418,15 @@ a {
     .menu .btn {
         padding: 0.35rem 0.55rem;
         font-size: 0.9rem;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        gap: 0.5rem 1rem;
     }
 
     .presentacion {
